@@ -1,0 +1,44 @@
+# prek configuration — https://github.com/j178/prek
+#
+# prek is a Rust reimplementation of pre-commit and reads the same hook
+# definitions. We declare our hooks here; run `prek install` to wire them
+# into git, and `prek run --all-files` to lint the whole repo.
+
+[[repos]]
+repo = "https://github.com/pre-commit/pre-commit-hooks"
+rev = "v5.0.0"
+
+[[repos.hooks]]
+id = "check-yaml"
+
+[[repos.hooks]]
+id = "check-json"
+
+[[repos.hooks]]
+id = "end-of-file-fixer"
+
+[[repos.hooks]]
+id = "trailing-whitespace"
+
+[[repos.hooks]]
+id = "mixed-line-ending"
+
+[[repos]]
+repo = "https://github.com/igorshubovych/markdownlint-cli"
+rev = "v0.42.0"
+
+[[repos.hooks]]
+id = "markdownlint"
+args = ["--config", ".markdownlint.json"]
+
+# Local hook: validate every SKILL.md against the Agent Skills spec.
+# https://agentskills.io/specification
+[[repos]]
+repo = "local"
+
+[[repos.hooks]]
+id = "validate-skill-md"
+name = "Validate SKILL.md frontmatter"
+entry = "scripts/validate_skill.py"
+language = "python"
+files = "^skills/[^/]+/SKILL\\.md$"

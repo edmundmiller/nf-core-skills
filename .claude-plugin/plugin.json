@@ -1,0 +1,19 @@
+{
+  "name": "nf-core",
+  "version": "0.1.0",
+  "description": "Agent Skills for nf-core — Nextflow pipelines, modules, subworkflows, and the nf-core toolchain. Use when working on Nextflow pipelines or .nf, .nf.test, or nextflow.config files in an nf-core project.",
+  "author": {
+    "name": "nf-core",
+    "url": "https://nf-co.re"
+  },
+  "repository": "https://github.com/nf-core/skills",
+  "license": "MIT",
+  "keywords": [
+    "nf-core",
+    "nextflow",
+    "bioinformatics",
+    "pipelines",
+    "workflows",
+    "nf-test"
+  ]
+}

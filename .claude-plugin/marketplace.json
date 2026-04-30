@@ -1,0 +1,15 @@
+{
+  "name": "nf-core-skills",
+  "owner": {
+    "name": "nf-core",
+    "url": "https://nf-co.re"
+  },
+  "plugins": [
+    {
+      "name": "nf-core",
+      "source": "./",
+      "description": "Agent Skills for nf-core",
+      "version": "0.1.0"
+    }
+  ]
+}
