@@ -20,9 +20,7 @@ This repository is a flat collection of [Agent Skills](https://agentskills.io/sp
 │       ├── references/          # optional: progressive-disclosure docs
 │       ├── scripts/             # optional: executable helpers
 │       └── assets/              # optional: templates, schemas, fixtures
-├── scripts/                     # repo-level tooling (validators)
-│   └── validate_skill.py
-├── prek.toml                    # pre-commit hooks
+├── prek.toml                    # pre-commit hooks (uses skills-ref)
 └── .markdownlint.json
 ```
 
@@ -49,4 +47,4 @@ Anything harness-specific MUST stay in its shim directory. The `skills/` tree is
 - Markdown passes `markdownlint`.
 - JSON manifests parse.
 
-If a rule matters enough to discuss, it belongs in [`scripts/validate_skill.py`](../scripts/validate_skill.py) or a hook in [`prek.toml`](../prek.toml), not in prose.
+If a rule matters enough to discuss, it belongs in a hook in [`prek.toml`](../prek.toml), not in prose.

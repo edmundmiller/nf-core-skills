@@ -17,7 +17,7 @@
 3. Write the body. Aim for under 500 lines. Move long material to `skills/<skill-name>/references/<TOPIC>.md` and link to it.
 4. Run the validator:
    ```sh
-   python3 scripts/validate_skill.py skills/<skill-name>/SKILL.md
+   skills-ref validate skills/<skill-name>
    ```
 5. Add a row to the Skills table in [`README.md`](../README.md).
 

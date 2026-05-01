@@ -31,14 +31,15 @@ rev = "v0.42.0"
 id = "markdownlint"
 args = ["--config", ".markdownlint.json"]
 
-# Local hook: validate every SKILL.md against the Agent Skills spec.
-# https://agentskills.io/specification
+# Validate SKILL.md against the Agent Skills spec using the official
+# reference library: https://github.com/agentskills/agentskills/tree/main/skills-ref
 [[repos]]
 repo = "local"
 
 [[repos.hooks]]
 id = "validate-skill-md"
-name = "Validate SKILL.md frontmatter"
-entry = "scripts/validate_skill.py"
+name = "Validate SKILL.md (skills-ref)"
+entry = "skills-ref validate"
 language = "python"
+additional_dependencies = ["skills-ref @ git+https://github.com/agentskills/agentskills.git#subdirectory=skills-ref"]
 files = "^skills/[^/]+/SKILL\\.md$"
