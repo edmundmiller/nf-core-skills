@@ -42,6 +42,7 @@ Drop the `skills/` directory contents into any agent harness that follows the [A
 | Skill | Description |
 |-------|-------------|
 | [nf-core-pipeline](skills/nf-core-pipeline) | Create and modify [nf-core pipelines](https://nf-co.re/docs/contributing/pipelines) following community standards |
+| [nf-core-lint](skills/nf-core-lint) | Run and interpret `nf-core pipelines lint` to validate pipeline compliance |
 
 ## Development
 
