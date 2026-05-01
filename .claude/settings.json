@@ -1,0 +1,33 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "command": ".claude/hooks/guard-nfcore-modules.sh"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "command": ".claude/hooks/lint-schema.sh"
+      },
+      {
+        "matcher": "Edit|Write",
+        "command": ".claude/hooks/check-param-drift.sh"
+      },
+      {
+        "matcher": "Edit|Write",
+        "command": ".claude/hooks/lint-local-module.sh"
+      },
+      {
+        "matcher": "Edit|Write",
+        "command": ".claude/hooks/check-nftest-exists.sh"
+      }
+    ],
+    "Stop": [
+      {
+        "command": ".claude/hooks/check-changelog.sh"
+      }
+    ]
+  }
+}
