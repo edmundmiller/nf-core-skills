@@ -43,3 +43,51 @@ entry = "skills-ref validate"
 language = "python"
 additional_dependencies = ["skills-ref @ git+https://github.com/agentskills/agentskills.git#subdirectory=skills-ref"]
 files = "^skills/[^/]+/SKILL\\.md$"
+
+[[repos.hooks]]
+id = "guard-nfcore-modules"
+name = "Block direct edits to modules/nf-core"
+entry = "scripts/prek-hooks/guard-nfcore-modules.sh"
+language = "system"
+files = "(^|/)modules/nf-core/"
+pass_filenames = true
+
+[[repos.hooks]]
+id = "lint-schema"
+name = "Lint nextflow schema"
+entry = "scripts/prek-hooks/lint-schema.sh"
+language = "system"
+files = "(^|/)nextflow_schema\\.json$"
+pass_filenames = true
+
+[[repos.hooks]]
+id = "check-param-drift"
+name = "Check config/schema param drift"
+entry = "scripts/prek-hooks/check-param-drift.sh"
+language = "system"
+files = "(^|/)nextflow\\.config$"
+pass_filenames = true
+
+[[repos.hooks]]
+id = "lint-local-module"
+name = "Lint nf-core local modules"
+entry = "scripts/prek-hooks/lint-local-module.sh"
+language = "system"
+files = "(^|/)modules/local/"
+pass_filenames = true
+
+[[repos.hooks]]
+id = "check-nftest-exists"
+name = "Require nf-test for local nf files"
+entry = "scripts/prek-hooks/check-nftest-exists.sh"
+language = "system"
+files = "(^|/)(modules/local|subworkflows/local|workflows)/.*\\.nf$"
+pass_filenames = true
+
+[[repos.hooks]]
+id = "check-changelog"
+name = "Require CHANGELOG for user-visible changes"
+entry = "scripts/prek-hooks/check-changelog.sh"
+language = "system"
+pass_filenames = false
+always_run = true

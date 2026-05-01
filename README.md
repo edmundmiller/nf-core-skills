@@ -52,6 +52,27 @@ This repo uses [`prek`](https://github.com/j178/prek) to validate skills before 
 prek install
 ```
 
+Run one hook:
+
+```sh
+prek run <hook-id> --all-files
+```
+
+Run all hooks:
+
+```sh
+prek run --all-files
+```
+
+Shared cross-agent hook IDs:
+
+- `guard-nfcore-modules`
+- `lint-schema`
+- `check-param-drift`
+- `lint-local-module`
+- `check-nftest-exists`
+- `check-changelog`
+
 See [`prek.toml`](prek.toml) for the configured checks, [`AGENTS.md`](AGENTS.md) for the agent-facing map, and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the layout.
 
 The design follows [OpenAI's harness engineering principles](https://openai.com/index/harness-engineering/): a small `AGENTS.md` table of contents, mechanical enforcement of repo structure, and progressive disclosure of detail.
