@@ -1,0 +1,46 @@
+{
+  "name": "nf-core-tools",
+  "version": "0.1.0",
+  "description": "nf-core plugin for pipeline linting, schema checks, and Nextflow workflow guardrails.",
+  "author": {
+    "name": "nf-core",
+    "email": "core@nf-co.re",
+    "url": "https://nf-co.re"
+  },
+  "homepage": "https://nf-co.re",
+  "repository": "https://github.com/edmundmiller/nf-core-skills",
+  "license": "MIT",
+  "keywords": [
+    "nf-core",
+    "nextflow",
+    "lint",
+    "bioinformatics",
+    "workflows"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks.json",
+  "mcpServers": "./.mcp.json",
+  "apps": "./.app.json",
+  "interface": {
+    "displayName": "nf-core Tools",
+    "shortDescription": "Run nf-core lint and policy checks fast.",
+    "longDescription": "Provides reusable nf-core lint, schema, and changelog guardrails across Codex, Claude, and Cursor.",
+    "developerName": "nf-core",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Execute"
+    ],
+    "websiteURL": "https://nf-co.re",
+    "privacyPolicyURL": "https://github.com/site/privacy",
+    "termsOfServiceURL": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
+    "defaultPrompt": [
+      "Run all nf-core hooks with prek and summarize failures.",
+      "Run only the failing hook by id and show precise fixes.",
+      "Check Nextflow config vs schema drift and fix mismatches."
+    ],
+    "brandColor": "#0EA5A4",
+    "screenshots": []
+  }
+}
