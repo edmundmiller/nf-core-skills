@@ -3,30 +3,30 @@
     "PreToolUse": [
       {
         "matcher": "Edit|Write",
-        "command": "scripts/prek-hooks/claude/guard-nfcore-modules.sh"
+        "hooks": [{"type": "command", "command": "scripts/prek-hooks/claude/guard-nfcore-modules.sh"}]
       }
     ],
     "PostToolUse": [
       {
         "matcher": "Edit|Write",
-        "command": "scripts/prek-hooks/claude/lint-schema.sh"
+        "hooks": [{"type": "command", "command": "scripts/prek-hooks/claude/lint-schema.sh"}]
       },
       {
         "matcher": "Edit|Write",
-        "command": "scripts/prek-hooks/claude/check-param-drift.sh"
+        "hooks": [{"type": "command", "command": "scripts/prek-hooks/claude/check-param-drift.sh"}]
       },
       {
         "matcher": "Edit|Write",
-        "command": "scripts/prek-hooks/claude/lint-local-module.sh"
+        "hooks": [{"type": "command", "command": "scripts/prek-hooks/claude/lint-local-module.sh"}]
       },
       {
         "matcher": "Edit|Write",
-        "command": "scripts/prek-hooks/claude/check-nftest-exists.sh"
+        "hooks": [{"type": "command", "command": "scripts/prek-hooks/claude/check-nftest-exists.sh"}]
       }
     ],
     "Stop": [
       {
-        "command": "scripts/prek-hooks/check-changelog.sh"
+        "hooks": [{"type": "command", "command": "scripts/prek-hooks/check-changelog.sh"}]
       }
     ]
   }
