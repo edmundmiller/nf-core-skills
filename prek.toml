@@ -91,3 +91,11 @@ entry = "scripts/prek-hooks/check-changelog.sh"
 language = "system"
 pass_filenames = false
 always_run = true
+
+[[repos.hooks]]
+id = "check-claude-hooks-schema"
+name = "Validate Claude Code hooks schema"
+entry = "scripts/prek-hooks/check-claude-hooks-schema.sh"
+language = "system"
+files = "(^|/)\\.claude/settings\\.json$"
+pass_filenames = true
