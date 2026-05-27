@@ -99,3 +99,19 @@ entry = "scripts/prek-hooks/check-claude-hooks-schema.sh"
 language = "system"
 files = "(^|/)\\.claude/settings\\.json$"
 pass_filenames = true
+
+[[repos.hooks]]
+id = "validate-cursor-plugin-manifest"
+name = "Validate Cursor plugin manifest"
+entry = "check-jsonschema --schemafile https://raw.githubusercontent.com/cursor/plugins/main/schemas/plugin.schema.json"
+language = "python"
+additional_dependencies = ["check-jsonschema"]
+files = '(^|/)\.cursor-plugin/plugin\.json$'
+
+[[repos.hooks]]
+id = "validate-cursor-marketplace-manifest"
+name = "Validate Cursor marketplace manifest"
+entry = "check-jsonschema --schemafile https://raw.githubusercontent.com/cursor/plugins/main/schemas/marketplace.schema.json"
+language = "python"
+additional_dependencies = ["check-jsonschema"]
+files = '(^|/)\.cursor-plugin/marketplace\.json$'
