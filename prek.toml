@@ -5,14 +5,17 @@
 # into git, and `prek run --all-files` to lint the whole repo.
 
 [[repos]]
-repo = "https://github.com/pre-commit/pre-commit-hooks"
-rev = "v5.0.0"
+repo = "builtin"
 
 [[repos.hooks]]
 id = "check-yaml"
 
 [[repos.hooks]]
 id = "check-json"
+
+[[repos.hooks]]
+id = "pretty-format-json"
+args = ["--autofix", "--no-sort-keys", "--no-ensure-ascii"]
 
 [[repos.hooks]]
 id = "end-of-file-fixer"
