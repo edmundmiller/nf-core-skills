@@ -123,3 +123,19 @@ entry = "scripts/prek-hooks/check-codex-plugin.py"
 language = "system"
 files = '(^plugins/[^/]+/\.codex-plugin/plugin\.json$|^\.agents/plugins/marketplace\.json$)'
 pass_filenames = true
+
+[[repos.hooks]]
+id = "validate-claude-plugin-manifest"
+name = "Validate Claude Code plugin manifest"
+entry = "check-jsonschema --schemafile https://json.schemastore.org/claude-code-plugin-manifest.json"
+language = "python"
+additional_dependencies = ["check-jsonschema"]
+files = '(^|/)\.claude-plugin/plugin\.json$'
+
+[[repos.hooks]]
+id = "validate-claude-marketplace-manifest"
+name = "Validate Claude Code marketplace manifest"
+entry = "check-jsonschema --schemafile https://json.schemastore.org/claude-code-marketplace.json"
+language = "python"
+additional_dependencies = ["check-jsonschema"]
+files = '(^|/)\.claude-plugin/marketplace\.json$'
