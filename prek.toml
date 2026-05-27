@@ -146,5 +146,3 @@ files = '(^|/)\.claude-plugin/marketplace\.json$'
 [[repos.hooks]]
 id = "check-github-workflows"
 
-[[repos.hooks]]
-id = "check-github-actions"
