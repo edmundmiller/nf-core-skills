@@ -104,22 +104,6 @@ files = "(^|/)\\.claude/settings\\.json$"
 pass_filenames = true
 
 [[repos.hooks]]
-id = "validate-cursor-plugin-manifest"
-name = "Validate Cursor plugin manifest"
-entry = "check-jsonschema --schemafile https://raw.githubusercontent.com/cursor/plugins/main/schemas/plugin.schema.json"
-language = "python"
-additional_dependencies = ["check-jsonschema"]
-files = '(^|/)\.cursor-plugin/plugin\.json$'
-
-[[repos.hooks]]
-id = "validate-cursor-marketplace-manifest"
-name = "Validate Cursor marketplace manifest"
-entry = "check-jsonschema --schemafile https://raw.githubusercontent.com/cursor/plugins/main/schemas/marketplace.schema.json"
-language = "python"
-additional_dependencies = ["check-jsonschema"]
-files = '(^|/)\.cursor-plugin/marketplace\.json$'
-
-[[repos.hooks]]
 id = "check-codex-plugin"
 name = "Validate Codex plugin manifests and marketplace"
 entry = "scripts/prek-hooks/check-codex-plugin.py"
@@ -127,18 +111,34 @@ language = "system"
 files = '(^plugins/[^/]+/\.codex-plugin/plugin\.json$|^\.agents/plugins/marketplace\.json$)'
 pass_filenames = true
 
+[[repos]]
+repo = "https://github.com/python-jsonschema/check-jsonschema"
+rev = "0.37.2"
+
 [[repos.hooks]]
-id = "validate-claude-plugin-manifest"
+id = "check-jsonschema"
+alias = "validate-cursor-plugin-manifest"
+name = "Validate Cursor plugin manifest"
+args = ["--schemafile", "https://raw.githubusercontent.com/cursor/plugins/main/schemas/plugin.schema.json"]
+files = '(^|/)\.cursor-plugin/plugin\.json$'
+
+[[repos.hooks]]
+id = "check-jsonschema"
+alias = "validate-cursor-marketplace-manifest"
+name = "Validate Cursor marketplace manifest"
+args = ["--schemafile", "https://raw.githubusercontent.com/cursor/plugins/main/schemas/marketplace.schema.json"]
+files = '(^|/)\.cursor-plugin/marketplace\.json$'
+
+[[repos.hooks]]
+id = "check-jsonschema"
+alias = "validate-claude-plugin-manifest"
 name = "Validate Claude Code plugin manifest"
-entry = "check-jsonschema --schemafile https://json.schemastore.org/claude-code-plugin-manifest.json"
-language = "python"
-additional_dependencies = ["check-jsonschema"]
+args = ["--schemafile", "https://json.schemastore.org/claude-code-plugin-manifest.json"]
 files = '(^|/)\.claude-plugin/plugin\.json$'
 
 [[repos.hooks]]
-id = "validate-claude-marketplace-manifest"
+id = "check-jsonschema"
+alias = "validate-claude-marketplace-manifest"
 name = "Validate Claude Code marketplace manifest"
-entry = "check-jsonschema --schemafile https://json.schemastore.org/claude-code-marketplace.json"
-language = "python"
-additional_dependencies = ["check-jsonschema"]
+args = ["--schemafile", "https://json.schemastore.org/claude-code-marketplace.json"]
 files = '(^|/)\.claude-plugin/marketplace\.json$'
