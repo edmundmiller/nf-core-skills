@@ -115,3 +115,11 @@ entry = "check-jsonschema --schemafile https://raw.githubusercontent.com/cursor/
 language = "python"
 additional_dependencies = ["check-jsonschema"]
 files = '(^|/)\.cursor-plugin/marketplace\.json$'
+
+[[repos.hooks]]
+id = "check-codex-plugin"
+name = "Validate Codex plugin manifests and marketplace"
+entry = "scripts/prek-hooks/check-codex-plugin.py"
+language = "system"
+files = '(^plugins/[^/]+/\.codex-plugin/plugin\.json$|^\.agents/plugins/marketplace\.json$)'
+pass_filenames = true
