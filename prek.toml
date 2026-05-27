@@ -142,3 +142,9 @@ alias = "validate-claude-marketplace-manifest"
 name = "Validate Claude Code marketplace manifest"
 args = ["--schemafile", "https://json.schemastore.org/claude-code-marketplace.json"]
 files = '(^|/)\.claude-plugin/marketplace\.json$'
+
+[[repos.hooks]]
+id = "check-github-workflows"
+
+[[repos.hooks]]
+id = "check-github-actions"
